@@ -1,0 +1,55 @@
+#include <DallasTemperature.h>
+#include <Servo.h>
+#include <OneWire.h>
+int fanPin = 6;
+int ledPin = 5;
+int temp_sensor = 7;
+float temperature = 0;
+float lowerLimit = 15;
+float higherLimit = 20;
+Servo servo;
+Servo servo2;
+OneWire oneWirePin(temp_sensor);
+DallasTemperature sensors(&oneWirePin);
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(fanPin, OUTPUT);
+  analogWrite(fanPin, 0);
+  sensors.begin();
+  pinMode(ledPin, OUTPUT);
+
+  
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  delay(5000);
+  Serial.print("Requesting Temps : ");
+  sensors.requestTemperatures();
+  Serial.println("DONE");
+  temperature = sensors.getTempCByIndex(0);
+  
+  
+  Serial.println(temperature);
+
+  if(temperature <= lowerLimit){ 
+    Serial.println("Motor off");
+    digitalWrite(ledPin, LOW);
+    analogWrite(fanPin, 0);
+    
+  }
+  else if(temperature >= higherLimit){
+    Serial.println("Red LED is Activated");
+    analogWrite(fanPin, 255);
+    digitalWrite(ledPin, HIGH);
+    
+  }
+  delay(500);
+  
+  }
+  
+ 
+
