@@ -1,6 +1,8 @@
 #include <DallasTemperature.h>
+// downloaded zip from https://www.arduinolibraries.info/libraries/dallas-temperature
 #include <Servo.h>
 #include <OneWire.h>
+#downlaod from https://www.arduinolibraries.info/libraries/one-wire
 int fanPin = 6;
 int ledPin = 5;
 int temp_sensor = 7;
