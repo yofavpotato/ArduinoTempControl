@@ -3,4 +3,4 @@
 
 stuff 
 
-https://insiders.liveshare.vsengsaas.visualstudio.com/join?04137D2623861A05A205A3DB13828AF58F2C
+https://insiders.liveshare.vsengsaas.visualstudio.com/join?60F9A690716DBFC4E8E62B6BC4018095196F
